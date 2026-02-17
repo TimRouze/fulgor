@@ -157,6 +157,7 @@ int build(int argc, char** argv) {
     bool force = parser.get<bool>("force");
     build_config.meta_colored = parser.get<bool>("meta");
     build_config.diff_colored = parser.get<bool>("diff");
+    build_config.force = force;
 
     if (parser.parsed("tmp_dirname")) {
         build_config.tmp_dirname = parser.get<std::string>("tmp_dirname");
@@ -273,6 +274,7 @@ int color(int argc, char** argv) {
     build_config.diff_colored = parser.get<bool>("diff");
     build_config.verbose = parser.get<bool>("verbose");
     bool force = parser.get<bool>("force");
+    build_config.force = force;
 
     if (build_config.meta_colored and build_config.diff_colored) {
         meta_diff_color(build_config, force);

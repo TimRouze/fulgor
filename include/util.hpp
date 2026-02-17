@@ -47,7 +47,8 @@ struct build_configuration {
         , check(false)
         //
         , meta_colored(false)
-        , diff_colored(false)  //
+        , diff_colored(false)
+        , force(false)  //
     {}
 
     uint32_t k;            // kmer length
@@ -67,6 +68,7 @@ struct build_configuration {
 
     bool meta_colored;
     bool diff_colored;
+    bool force;
 };
 
 struct kmer_conservation_triple {
