@@ -69,11 +69,13 @@ struct GGCAT {
         constexpr bool forward_only = false;
         constexpr bool output_color_sets = true;
         constexpr size_t min_multiplicity = 1;
+        constexpr bool enable_disk_optimization = false;
         m_instance->build_graph_from_files(
             ggcat::Slice<std::string>(m_filenames.data(), m_filenames.size()), m_graph_file, m_k,
             build_config.num_threads, forward_only, min_multiplicity,
             ggcat::ExtraElaborationStep_UnitigLinks, output_color_sets,
-            ggcat::Slice<std::string>(color_names.data(), color_names.size()));
+            ggcat::Slice<std::string>(color_names.data(), color_names.size()),
+            -1, 0, enable_disk_optimization);
     }
 
     void loop_through_unitigs(std::function<void(ggcat::Slice<char> const /* unitig */,         //
